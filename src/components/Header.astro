@@ -1,11 +1,35 @@
 ---
 ---
-<header class="sticky top-0 z-50 border-b border-surface-200 bg-surface-50/80 backdrop-blur-lg">
-  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <a href="/" class="text-lg font-bold tracking-tight text-surface-900 font-display">Your New Business</a>
-    <div class="flex items-center gap-6">
-      <a href="/blog" class="text-sm font-medium text-surface-800/60 hover:text-surface-900 transition-colors">Blog</a>
-      <a href="#cta" class="text-sm font-semibold bg-brand-500 text-white px-4 py-2 rounded-lg hover:bg-brand-600 transition-colors">Get Started</a>
+<header class="sticky top-0 z-50" style="border-bottom: 1px solid oklch(0.90 0.02 76); background-color: oklch(0.975 0.012 80 / 0.88); backdrop-filter: blur(16px) saturate(1.1);">
+  <nav class="max-w-6xl mx-auto px-6 sm:px-10 lg:px-12 h-16 flex items-center justify-between gap-8">
+
+    <!-- Wordmark -->
+    <a href="/" class="flex items-center gap-2.5 group">
+      <!-- Leaf icon -->
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: oklch(0.38 0.09 140);">
+        <path d="M12 2C6 2 3 7 3 12C3 17 6 20 12 20C18 20 21 16 21 10C21 6 18 2 12 2Z" fill="currentColor" fill-opacity="0.2"/>
+        <path d="M12 20C12 20 8 16 8 12C8 8.5 10 5 12 4C14 5 16 8.5 16 12C16 16 12 20 12 20Z" fill="currentColor"/>
+        <path d="M12 4C12 4 12 12 9 17" stroke="oklch(0.975 0.012 80)" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      <span class="font-display text-xl font-semibold tracking-tight" style="color: oklch(0.18 0.03 120); font-size: 1.15rem;">Patchwork Market</span>
+    </a>
+
+    <!-- Nav links — desktop -->
+    <div class="hidden md:flex items-center gap-7">
+      <a href="#how-it-works" class="text-sm font-semibold transition-colors duration-150" style="color: oklch(0.45 0.02 80);" onmouseover="this.style.color='oklch(0.38 0.09 140)'" onmouseout="this.style.color='oklch(0.45 0.02 80)'">How it works</a>
+      <a href="#shop" class="text-sm font-semibold transition-colors duration-150" style="color: oklch(0.45 0.02 80);" onmouseover="this.style.color='oklch(0.38 0.09 140)'" onmouseout="this.style.color='oklch(0.45 0.02 80)'">Shop</a>
+      <a href="/blog" class="text-sm font-semibold transition-colors duration-150" style="color: oklch(0.45 0.02 80);" onmouseover="this.style.color='oklch(0.38 0.09 140)'" onmouseout="this.style.color='oklch(0.45 0.02 80)'">Stories</a>
     </div>
+
+    <!-- CTA -->
+    <a href="#cta"
+       class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.03]"
+       style="background-color: oklch(0.38 0.09 140); color: oklch(0.975 0.012 80);">
+      Find my farms
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-3.5 h-3.5">
+        <path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd" />
+      </svg>
+    </a>
+
   </nav>
 </header>

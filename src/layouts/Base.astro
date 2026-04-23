@@ -8,7 +8,10 @@ interface Props {
   description?: string;
 }
 
-const { title = "Your New Business", description = "online farmers market" } = Astro.props;
+const {
+  title = "Patchwork Market — Your farmers market, open every day",
+  description = "Shop seasonal produce, handcrafted goods, and farm-fresh food directly from local growers near you. Delivered fresh, all year long."
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en" class="scroll-smooth">
@@ -18,18 +21,21 @@ const { title = "Your New Business", description = "online farmers market" } = A
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#F7F3ED" />
     <title>{title}</title>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Your New Business",
-      "description": "online farmers market",
-      "url": "https://online-farmers-market.onrender.com"
+      "name": "Patchwork Market",
+      "description": "Online farmers market connecting consumers with local farms, makers, and producers.",
+      "url": "https://online-farmers-market.onrender.com",
+      "keywords": "local farmers market, farm fresh delivery, buy local produce, online farmers market, farm to table, seasonal food"
     }
     </script>
   </head>
-  <body class="min-h-screen flex flex-col bg-surface-50 text-surface-900 font-body antialiased">
+  <body class="min-h-screen flex flex-col font-body antialiased" style="background-color: oklch(0.975 0.012 80); color: oklch(0.22 0.025 80);">
     <Header />
     <main class="flex-1">
       <slot />

@@ -1,35 +1,526 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Your New Business" description="online farmers market">
-  <!-- Hero — the Product Agent will replace this entire page -->
-  <section class="relative min-h-[80vh] flex items-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-brand-500/5 via-surface-50 to-brand-500/10"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
-      <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-surface-900 font-display max-w-4xl mx-auto leading-[1.1] animate-slide-up">
-        Your New Business
-      </h1>
-      <p class="mt-6 text-lg md:text-xl text-surface-800/60 max-w-2xl mx-auto leading-relaxed animate-slide-up delay-100">
-        online farmers market
-      </p>
-      <div class="mt-10 animate-slide-up delay-200">
-        <a href="#cta" class="inline-block px-8 py-3.5 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 transition-colors text-base">
-          Get Started
+<Base
+  title="Patchwork Market — Your farmers market, open every day"
+  description="Shop seasonal produce, handcrafted goods, and farm-fresh food directly from local growers — delivered to your door all year long."
+>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+       Layered amber + green ambient gradients, grain overlay,
+       wave fade to cream below
+  ═══════════════════════════════════════════════════════ -->
+  <section class="relative min-h-[92vh] flex items-center overflow-hidden grain-overlay" style="background-color: oklch(0.975 0.012 80);">
+
+    <!-- Multi-layer gradient background — autumn market light -->
+    <div class="absolute inset-0 z-0" style="
+      background:
+        radial-gradient(ellipse 90% 70% at 85% 10%,  oklch(0.75 0.10 55 / 0.32) 0%, transparent 65%),
+        radial-gradient(ellipse 70% 80% at 10% 90%,  oklch(0.38 0.09 140 / 0.20) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 50% 50%,  oklch(0.90 0.025 70 / 0.28) 0%, transparent 70%),
+        linear-gradient(168deg, oklch(0.96 0.018 72) 0%, oklch(0.975 0.012 80) 60%);
+    "></div>
+
+    <!-- Subtle dot grid texture -->
+    <div class="absolute inset-0 z-0 opacity-30" style="
+      background-image: radial-gradient(circle at 1px 1px, oklch(0.35 0.08 140 / 0.12) 1px, transparent 0);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+    "></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 sm:px-10 lg:px-12 py-24 md:py-36">
+      <div class="max-w-3xl">
+        <!-- Eyebrow -->
+        <div class="inline-flex items-center gap-2 mb-7 animate-fade-in">
+          <span class="w-2 h-2 rounded-full" style="background-color: oklch(0.64 0.125 50);"></span>
+          <span class="text-sm font-semibold tracking-widest uppercase" style="color: oklch(0.54 0.115 48); font-family: 'Nunito Sans', sans-serif; letter-spacing: 0.12em;">Online Farmers Market</span>
+        </div>
+
+        <!-- Hero headline — Fraunces, editorial serif, max impact -->
+        <h1 class="font-display animate-slide-up"
+            style="font-size: clamp(2.8rem, 6vw, 5.2rem); font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; color: oklch(0.18 0.03 120);">
+          Fresh from local farms,<br>
+          <em style="font-style: italic; color: oklch(0.38 0.09 140);">delivered</em> to your door
+        </h1>
+
+        <p class="mt-7 text-xl leading-relaxed max-w-xl animate-slide-up delay-100"
+           style="color: oklch(0.35 0.025 80); font-size: 1.15rem; font-weight: 400;">
+          Shop seasonal produce, handcrafted goods, and farm-fresh food directly from the growers who raised them — all year long.
+        </p>
+
+        <!-- CTA cluster -->
+        <div class="mt-10 flex flex-wrap items-center gap-4 animate-slide-up delay-200">
+          <a href="#shop"
+             class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+             style="background-color: oklch(0.38 0.09 140); color: oklch(0.975 0.012 80); box-shadow: 0 4px 24px oklch(0.38 0.09 140 / 0.28);">
+            Shop today's harvest
+            <!-- arrow right icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="#how-it-works"
+             class="inline-flex items-center gap-2 text-base font-semibold transition-colors duration-150"
+             style="color: oklch(0.38 0.09 140);">
+            How it works
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 opacity-70">
+              <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Trust micro-copy -->
+        <p class="mt-5 text-sm animate-slide-up delay-300" style="color: oklch(0.50 0.02 80);">
+          No subscription required &nbsp;·&nbsp; 200+ local farms &nbsp;·&nbsp; Same-week delivery
+        </p>
+      </div>
+    </div>
+
+    <!-- Floating produce badges — decorative, right side -->
+    <div class="absolute right-8 top-1/4 hidden lg:flex flex-col gap-4 z-10 animate-fade-in delay-400">
+      <div class="rounded-2xl px-4 py-3 text-sm font-semibold shadow-lg animate-float"
+           style="background: oklch(0.975 0.012 80 / 0.88); backdrop-filter: blur(12px); border: 1px solid oklch(0.90 0.02 76); color: oklch(0.22 0.025 80);">
+        🌽 &nbsp;Sweet corn — in season
+      </div>
+      <div class="rounded-2xl px-4 py-3 text-sm font-semibold shadow-lg"
+           style="background: oklch(0.975 0.012 80 / 0.88); backdrop-filter: blur(12px); border: 1px solid oklch(0.90 0.02 76); color: oklch(0.22 0.025 80); animation: floatSlow 7s 1s ease-in-out infinite;">
+        🍅 &nbsp;Heirloom tomatoes
+      </div>
+      <div class="rounded-2xl px-4 py-3 text-sm font-semibold shadow-lg"
+           style="background: oklch(0.975 0.012 80 / 0.88); backdrop-filter: blur(12px); border: 1px solid oklch(0.90 0.02 76); color: oklch(0.22 0.025 80); animation: floatSlow 8s 0.5s ease-in-out infinite;">
+        🍯 &nbsp;Raw wildflower honey
+      </div>
+    </div>
+
+    <!-- Organic wave to next section -->
+    <div class="wave-bottom z-10">
+      <svg viewBox="0 0 1440 72" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block; width:100%; height:72px;">
+        <path d="M0,40 C240,72 480,16 720,40 C960,64 1200,24 1440,40 L1440,72 L0,72 Z" fill="oklch(0.945 0.018 78)"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       IMPACT STATS — big Fraunces numerals as decorative anchors
+  ═══════════════════════════════════════════════════════ -->
+  <section style="background-color: oklch(0.945 0.018 78);" class="relative py-20 md:py-28 overflow-hidden">
+
+    <!-- Section label -->
+    <div class="text-center mb-14 px-6">
+      <p class="text-sm font-semibold tracking-widest uppercase" style="color: oklch(0.64 0.125 50); letter-spacing: 0.14em;">A growing community</p>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+
+      <!-- Stat: Farms -->
+      <div class="relative text-center group">
+        <div class="font-display text-8xl font-semibold leading-none select-none pointer-events-none absolute -top-4 left-1/2 -translate-x-1/2"
+             style="color: oklch(0.38 0.09 140 / 0.08); font-size: clamp(4rem, 8vw, 6rem);">200+</div>
+        <div class="relative z-10 pt-6">
+          <div class="font-display text-5xl font-semibold" style="color: oklch(0.38 0.09 140);">200+</div>
+          <div class="mt-2 text-sm font-semibold" style="color: oklch(0.40 0.02 80);">Local farms<br>& producers</div>
+        </div>
+      </div>
+
+      <!-- Stat: Deliveries -->
+      <div class="relative text-center group">
+        <div class="font-display text-8xl font-semibold leading-none select-none pointer-events-none absolute -top-4 left-1/2 -translate-x-1/2"
+             style="color: oklch(0.64 0.125 50 / 0.10); font-size: clamp(4rem, 8vw, 6rem);">12k</div>
+        <div class="relative z-10 pt-6">
+          <div class="font-display text-5xl font-semibold" style="color: oklch(0.38 0.09 140);">12,000</div>
+          <div class="mt-2 text-sm font-semibold" style="color: oklch(0.40 0.02 80);">Happy households<br>served weekly</div>
+        </div>
+      </div>
+
+      <!-- Stat: States -->
+      <div class="relative text-center group">
+        <div class="relative z-10 pt-6">
+          <div class="font-display text-5xl font-semibold" style="color: oklch(0.38 0.09 140);">18</div>
+          <div class="mt-2 text-sm font-semibold" style="color: oklch(0.40 0.02 80);">States with<br>local coverage</div>
+        </div>
+      </div>
+
+      <!-- Stat: Rating -->
+      <div class="relative text-center group">
+        <div class="relative z-10 pt-6">
+          <div class="font-display text-5xl font-semibold" style="color: oklch(0.38 0.09 140);">4.9<span class="text-2xl">★</span></div>
+          <div class="mt-2 text-sm font-semibold" style="color: oklch(0.40 0.02 80);">Average rating<br>from 8,400 reviews</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Wave to next section -->
+    <div class="wave-bottom z-10" style="margin-top: 4rem;">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block; width:100%; height:60px;">
+        <path d="M0,20 C360,60 720,0 1080,30 C1260,45 1360,15 1440,20 L1440,60 L0,60 Z" fill="oklch(0.975 0.012 80)"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       HOW IT WORKS — 3 steps, editorial & human
+  ═══════════════════════════════════════════════════════ -->
+  <section id="how-it-works" style="background-color: oklch(0.975 0.012 80);" class="py-24 md:py-36 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 sm:px-10 lg:px-12">
+
+      <!-- Section header -->
+      <div class="max-w-lg mb-20">
+        <p class="text-sm font-semibold tracking-widest uppercase mb-4" style="color: oklch(0.64 0.125 50); letter-spacing: 0.14em;">Your market, simplified</p>
+        <h2 class="font-display leading-tight" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; color: oklch(0.18 0.03 120);">
+          From field to front door<br>in three simple steps
+        </h2>
+      </div>
+
+      <!-- Steps — staggered layout, not a uniform grid -->
+      <div class="grid md:grid-cols-3 gap-10 md:gap-8">
+
+        <!-- Step 1 -->
+        <div class="relative" style="margin-top: 0;">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 font-display text-xl font-semibold"
+               style="background-color: oklch(0.91 0.03 140); color: oklch(0.30 0.085 140);">01</div>
+          <h3 class="font-display text-2xl font-semibold mb-3" style="color: oklch(0.18 0.03 120); font-size: 1.4rem;">
+            Browse this week's harvest
+          </h3>
+          <p class="text-base leading-relaxed" style="color: oklch(0.38 0.02 80);">
+            Every Monday, farms near you post what's ready to pick. You see real photos, real prices, and the name of the person who grew it. No mystery produce boxes.
+          </p>
+        </div>
+
+        <!-- Step 2 — offset vertically -->
+        <div class="relative" style="margin-top: 2rem;">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 font-display text-xl font-semibold"
+               style="background-color: oklch(0.93 0.045 58); color: oklch(0.54 0.115 48);">02</div>
+          <h3 class="font-display text-2xl font-semibold mb-3" style="color: oklch(0.18 0.03 120); font-size: 1.4rem;">
+            Fill your market basket
+          </h3>
+          <p class="text-base leading-relaxed" style="color: oklch(0.38 0.02 80);">
+            Mix and match from multiple farms in one order. Grab eggs from Hillside Farm, sourdough from the bread co-op, and honey from a beekeeper two towns over.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative" style="margin-top: 1rem;">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 font-display text-xl font-semibold"
+               style="background-color: oklch(0.82 0.055 140); color: oklch(0.30 0.085 140);">03</div>
+          <h3 class="font-display text-2xl font-semibold mb-3" style="color: oklch(0.18 0.03 120); font-size: 1.4rem;">
+            Delivered by Thursday
+          </h3>
+          <p class="text-base leading-relaxed" style="color: oklch(0.38 0.02 80);">
+            Your order arrives chilled and packed in compostable materials. Each item includes a card telling its story — where it came from, how it was grown, and who to thank.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Pull quote -->
+      <div class="mt-20 max-w-2xl mx-auto text-center">
+        <blockquote class="font-display italic" style="font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 400; color: oklch(0.38 0.09 140); line-height: 1.4;">
+          "Finally, I know exactly who grew my food and where it came from. It feels like the Saturday market — but open every day."
+        </blockquote>
+        <cite class="mt-4 block text-sm font-semibold not-italic" style="color: oklch(0.50 0.02 80);">— Maya R., Portland OR &nbsp;·&nbsp; Member since 2023</cite>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FEATURED PRODUCERS — editorial card grid
+       Story-first. Human faces behind the food.
+  ═══════════════════════════════════════════════════════ -->
+  <section style="background-color: oklch(0.945 0.018 78);" class="relative py-24 md:py-36 overflow-hidden">
+
+    <!-- Decorative botanical motif — large faded circle -->
+    <div class="absolute right-0 top-0 w-96 h-96 rounded-full -translate-y-1/4 translate-x-1/4"
+         style="background: radial-gradient(circle, oklch(0.38 0.09 140 / 0.06) 0%, transparent 70%);"></div>
+
+    <div class="max-w-6xl mx-auto px-6 sm:px-10 lg:px-12">
+
+      <!-- Section header — editorial, left-aligned -->
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div class="max-w-lg">
+          <p class="text-sm font-semibold tracking-widest uppercase mb-4" style="color: oklch(0.64 0.125 50); letter-spacing: 0.14em;">Meet the growers</p>
+          <h2 class="font-display leading-tight" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; color: oklch(0.18 0.03 120);">
+            Every farm has a story.<br>Every meal has a name.
+          </h2>
+        </div>
+        <a href="#shop" class="inline-flex items-center gap-2 text-sm font-semibold self-start md:self-end pb-1 border-b-2 transition-colors duration-150"
+           style="color: oklch(0.38 0.09 140); border-color: oklch(0.82 0.055 140);">
+          Browse all 200+ farms
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+          </svg>
         </a>
+      </div>
+
+      <!-- Producer cards — editorial layout, staggered heights -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+        <!-- Card 1 -->
+        <article class="rounded-3xl overflow-hidden group" style="background-color: oklch(0.975 0.012 80); box-shadow: 0 2px 20px oklch(0.22 0.025 80 / 0.07);">
+          <!-- Illustrated produce color band -->
+          <div class="h-44 flex items-center justify-center relative overflow-hidden"
+               style="background: linear-gradient(135deg, oklch(0.45 0.10 140 / 0.85), oklch(0.55 0.11 130 / 0.70));">
+            <span class="text-7xl select-none" style="filter: drop-shadow(0 4px 8px oklch(0 0 0 / 0.2));">🥬</span>
+            <div class="absolute bottom-3 left-4">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background: oklch(0.975 0.012 80 / 0.9); color: oklch(0.38 0.09 140);">Vegetables · Organic</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-semibold mb-1" style="color: oklch(0.18 0.03 120);">Sunroot Farm</h3>
+            <p class="text-sm mb-3" style="color: oklch(0.64 0.125 50);">📍 Willamette Valley, OR</p>
+            <p class="text-sm leading-relaxed" style="color: oklch(0.38 0.02 80);">
+              Third-generation family farm growing heirloom greens, root vegetables, and edible flowers since 1978. Certified organic. Zero synthetic inputs.
+            </p>
+            <div class="mt-4 pt-4 border-t flex items-center justify-between" style="border-color: oklch(0.90 0.02 76);">
+              <span class="text-xs font-semibold" style="color: oklch(0.50 0.02 80);">12 products this week</span>
+              <a href="#shop" class="text-xs font-semibold" style="color: oklch(0.38 0.09 140);">Shop now →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 — tall, amber accent -->
+        <article class="rounded-3xl overflow-hidden group sm:mt-8" style="background-color: oklch(0.975 0.012 80); box-shadow: 0 2px 20px oklch(0.22 0.025 80 / 0.07);">
+          <div class="h-44 flex items-center justify-center relative overflow-hidden"
+               style="background: linear-gradient(135deg, oklch(0.72 0.115 52 / 0.75), oklch(0.64 0.125 50 / 0.65));">
+            <span class="text-7xl select-none" style="filter: drop-shadow(0 4px 8px oklch(0 0 0 / 0.2));">🍯</span>
+            <div class="absolute bottom-3 left-4">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background: oklch(0.975 0.012 80 / 0.9); color: oklch(0.54 0.115 48);">Honey · Artisan</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-semibold mb-1" style="color: oklch(0.18 0.03 120);">Golden Hollow Apiary</h3>
+            <p class="text-sm mb-3" style="color: oklch(0.64 0.125 50);">📍 Blue Ridge, VA</p>
+            <p class="text-sm leading-relaxed" style="color: oklch(0.38 0.02 80);">
+              Small-batch, single-origin honey harvested by hand from 40 hives nestled in wildflower meadows. Each jar captures a season, a place, a flower.
+            </p>
+            <div class="mt-4 pt-4 border-t flex items-center justify-between" style="border-color: oklch(0.90 0.02 76);">
+              <span class="text-xs font-semibold" style="color: oklch(0.50 0.02 80);">5 varieties in stock</span>
+              <a href="#shop" class="text-xs font-semibold" style="color: oklch(0.38 0.09 140);">Shop now →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="rounded-3xl overflow-hidden group" style="background-color: oklch(0.975 0.012 80); box-shadow: 0 2px 20px oklch(0.22 0.025 80 / 0.07);">
+          <div class="h-44 flex items-center justify-center relative overflow-hidden"
+               style="background: linear-gradient(135deg, oklch(0.55 0.08 30 / 0.70), oklch(0.65 0.09 40 / 0.65));">
+            <span class="text-7xl select-none" style="filter: drop-shadow(0 4px 8px oklch(0 0 0 / 0.2));">🍞</span>
+            <div class="absolute bottom-3 left-4">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background: oklch(0.975 0.012 80 / 0.9); color: oklch(0.38 0.09 140);">Bread · Sourdough</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-semibold mb-1" style="color: oklch(0.18 0.03 120);">Hearthside Bread Co.</h3>
+            <p class="text-sm mb-3" style="color: oklch(0.64 0.125 50);">📍 Hudson Valley, NY</p>
+            <p class="text-sm leading-relaxed" style="color: oklch(0.38 0.02 80);">
+              A micro-bakery milling local heritage wheat fresh every morning. Open-crumb sourdoughs, seeded ryes, and seasonal fruit breads baked to order.
+            </p>
+            <div class="mt-4 pt-4 border-t flex items-center justify-between" style="border-color: oklch(0.90 0.02 76);">
+              <span class="text-xs font-semibold" style="color: oklch(0.50 0.02 80);">Order by Tuesday</span>
+              <a href="#shop" class="text-xs font-semibold" style="color: oklch(0.38 0.09 140);">Shop now →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Wave to next section -->
+    <div class="wave-bottom z-10" style="margin-top: 4rem;">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block; width:100%; height:60px;">
+        <path d="M0,30 C480,0 960,60 1440,30 L1440,60 L0,60 Z" fill="oklch(0.38 0.09 140)"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEASONAL CATEGORIES — visual taste of what's available
+  ═══════════════════════════════════════════════════════ -->
+  <section id="shop" style="background-color: oklch(0.38 0.09 140);" class="relative py-24 md:py-32 overflow-hidden">
+
+    <!-- Ambient glow on dark section -->
+    <div class="absolute inset-0 z-0" style="
+      background:
+        radial-gradient(ellipse 60% 60% at 20% 30%, oklch(0.64 0.125 50 / 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 80% 70%, oklch(0.82 0.055 140 / 0.12) 0%, transparent 50%);
+    "></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 sm:px-10 lg:px-12">
+
+      <!-- Section header — inverted -->
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold tracking-widest uppercase mb-4" style="color: oklch(0.82 0.055 140); letter-spacing: 0.14em;">What's in season</p>
+        <h2 class="font-display leading-tight" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; color: oklch(0.975 0.012 80);">
+          Your market basket, filled fresh
+        </h2>
+        <p class="mt-4 text-base max-w-lg mx-auto" style="color: oklch(0.82 0.055 140);">
+          Every category sourced exclusively from small, local producers. Nothing from industrial farms. Ever.
+        </p>
+      </div>
+
+      <!-- Category grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+        {[
+          { emoji: '🥦', label: 'Vegetables', count: '80+ farms' },
+          { emoji: '🫐', label: 'Fruit & Berries', count: '45+ farms' },
+          { emoji: '🧀', label: 'Dairy & Cheese', count: '30+ farms' },
+          { emoji: '🥚', label: 'Eggs & Poultry', count: '55+ farms' },
+          { emoji: '🫙', label: 'Pickles & Preserves', count: '60+ makers' },
+          { emoji: '🌿', label: 'Fresh Herbs', count: '35+ farms' },
+          { emoji: '🍖', label: 'Pasture-raised Meat', count: '25+ farms' },
+          { emoji: '🌻', label: 'Cut Flowers', count: '20+ growers' },
+        ].map((cat) => (
+          <a href="#shop"
+             class="rounded-2xl p-5 text-center transition-all duration-200 hover:scale-[1.03] group"
+             style="background: oklch(0.975 0.012 80 / 0.07); border: 1px solid oklch(0.975 0.012 80 / 0.12);">
+            <div class="text-4xl mb-3">{cat.emoji}</div>
+            <div class="font-semibold text-sm mb-1" style="color: oklch(0.975 0.012 80);">{cat.label}</div>
+            <div class="text-xs" style="color: oklch(0.82 0.055 140);">{cat.count}</div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+
+    <!-- Wave back to cream -->
+    <div class="wave-bottom z-10" style="margin-top: 4rem;">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block; width:100%; height:60px;">
+        <path d="M0,20 C360,55 900,5 1440,35 L1440,60 L0,60 Z" fill="oklch(0.975 0.012 80)"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       TRUST & VALUES — why Patchwork is different
+  ═══════════════════════════════════════════════════════ -->
+  <section style="background-color: oklch(0.975 0.012 80);" class="py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-6 sm:px-10 lg:px-12">
+
+      <!-- Asymmetric two-column layout -->
+      <div class="grid md:grid-cols-2 gap-16 md:gap-20 items-center">
+
+        <!-- Left: Big statement -->
+        <div>
+          <p class="text-sm font-semibold tracking-widest uppercase mb-5" style="color: oklch(0.64 0.125 50); letter-spacing: 0.14em;">Our promise</p>
+          <h2 class="font-display leading-tight mb-8" style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; color: oklch(0.18 0.03 120);">
+            We're a market,<br>not a platform.
+          </h2>
+          <p class="text-base leading-relaxed mb-6" style="color: oklch(0.38 0.02 80);">
+            Patchwork Market was built from the belief that buying local food shouldn't require a subscription box or a software contract. You shop when you want, from the farms you trust, paying fair prices that go directly to growers — not middlemen.
+          </p>
+          <p class="text-base leading-relaxed" style="color: oklch(0.38 0.02 80);">
+            We make it easy to discover new farms, learn the story behind your food, and build lasting relationships with the people who grow it. That's the real farmers market experience — just open 365 days a year.
+          </p>
+
+          <!-- Value chips -->
+          <div class="mt-8 flex flex-wrap gap-3">
+            {['No subscriptions', 'Zero industrial farms', 'Compostable packaging', 'Transparent pricing', 'Farmer-fair payouts'].map((val) => (
+              <span class="text-sm font-semibold px-4 py-2 rounded-full"
+                    style="background-color: oklch(0.91 0.03 140); color: oklch(0.30 0.085 140);">
+                ✓ &nbsp;{val}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right: Social proof card -->
+        <div class="space-y-5">
+
+          <div class="rounded-3xl p-7" style="background-color: oklch(0.945 0.018 78); border: 1px solid oklch(0.90 0.02 76);">
+            <div class="flex gap-1 mb-3">
+              {Array(5).fill('').map(() => <span style="color: oklch(0.64 0.125 50);">★</span>)}
+            </div>
+            <p class="text-base leading-relaxed font-display italic mb-4" style="color: oklch(0.22 0.025 80);">
+              "I haven't set foot in a grocery store in four months. Everything just shows up — beautiful, fresh, and with a little note from the farmer. I feel connected to my food again."
+            </p>
+            <p class="text-sm font-semibold" style="color: oklch(0.38 0.09 140);">Carlos M. &nbsp;·&nbsp; Austin, TX</p>
+          </div>
+
+          <div class="rounded-3xl p-7" style="background-color: oklch(0.945 0.018 78); border: 1px solid oklch(0.90 0.02 76);">
+            <div class="flex gap-1 mb-3">
+              {Array(5).fill('').map(() => <span style="color: oklch(0.64 0.125 50);">★</span>)}
+            </div>
+            <p class="text-base leading-relaxed font-display italic mb-4" style="color: oklch(0.22 0.025 80);">
+              "The mushroom farm two towns over? Never would have found them at Whole Foods. Now I order every week. This app changed how our family eats."
+            </p>
+            <p class="text-sm font-semibold" style="color: oklch(0.38 0.09 140);">Priya L. &nbsp;·&nbsp; Burlington, VT</p>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="cta" class="py-20 md:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-2xl bg-brand-500 p-10 md:p-16 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white font-display">Ready to get started?</h2>
-        <p class="mt-4 text-lg text-white/80 max-w-xl mx-auto">Get in touch and see what we can do for you.</p>
-        <a href="mailto:hello@example.com" class="mt-8 inline-block px-8 py-3.5 bg-white text-surface-900 font-semibold rounded-lg hover:bg-surface-100 transition-colors text-base">
-          Contact Us
-        </a>
+
+  <!-- ═══════════════════════════════════════════════════════
+       JOIN CTA — warm, community-driven, not salesy
+  ═══════════════════════════════════════════════════════ -->
+  <section id="cta" style="background-color: oklch(0.945 0.018 78);" class="relative py-24 md:py-36 overflow-hidden">
+
+    <!-- Decorative amber gradient bloom -->
+    <div class="absolute inset-0 z-0" style="
+      background:
+        radial-gradient(ellipse 60% 80% at 75% 50%, oklch(0.72 0.115 52 / 0.14) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 20% 30%, oklch(0.38 0.09 140 / 0.10) 0%, transparent 55%);
+    "></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+
+      <!-- Headline -->
+      <p class="text-sm font-semibold tracking-widest uppercase mb-6" style="color: oklch(0.64 0.125 50); letter-spacing: 0.14em;">Your market is waiting</p>
+      <h2 class="font-display leading-tight mb-6" style="font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 600; color: oklch(0.18 0.03 120);">
+        Join 12,000 families eating<br>
+        <em style="font-style: italic; color: oklch(0.38 0.09 140);">better, together</em>
+      </h2>
+      <p class="text-lg max-w-xl mx-auto mb-10" style="color: oklch(0.38 0.02 80);">
+        Enter your zip code and discover the farms closest to you. Your first box ships within the week.
+      </p>
+
+      <!-- Zip + CTA form -->
+      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-5" onsubmit="return false;">
+        <input
+          type="text"
+          placeholder="Enter your zip code"
+          maxlength="10"
+          class="flex-1 px-5 py-4 rounded-2xl text-base outline-none transition-all duration-150"
+          style="background-color: oklch(0.975 0.012 80); border: 1.5px solid oklch(0.90 0.02 76); color: oklch(0.22 0.025 80); font-family: 'Nunito Sans', sans-serif;"
+          onfocus="this.style.borderColor='oklch(0.54 0.095 140)'"
+          onblur="this.style.borderColor='oklch(0.90 0.02 76)'"
+        />
+        <button type="submit"
+                class="px-7 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
+                style="background-color: oklch(0.64 0.125 50); color: oklch(0.975 0.012 80); box-shadow: 0 4px 20px oklch(0.64 0.125 50 / 0.30);">
+          Find my farms
+        </button>
+      </form>
+
+      <p class="text-sm" style="color: oklch(0.50 0.02 80);">
+        No subscription, no commitment. Shop anytime, skip anytime.
+      </p>
+
+      <!-- Testimonial strip -->
+      <div class="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6">
+        <div class="flex -space-x-3">
+          {['🧑‍🌾', '👩‍🍳', '👨‍👩‍👧', '🧑', '👩'].map((emoji, i) => (
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-base border-2"
+                 style="background-color: oklch(0.82 0.055 140); border-color: oklch(0.945 0.018 78);">
+              {emoji}
+            </div>
+          ))}
+        </div>
+        <p class="text-sm font-semibold" style="color: oklch(0.38 0.02 80);">
+          <span style="color: oklch(0.38 0.09 140);">4.9 stars</span> · Loved by 12,000+ families across 18 states
+        </p>
       </div>
+
     </div>
   </section>
+
 </Base>

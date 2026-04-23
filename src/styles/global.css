@@ -1,57 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 /* -----------------------------------------------------------------------
-   Design Tokens — customize these to change the entire site's look.
-   The Product Agent should edit this @theme block to match the business:
-   - Swap fonts (Google Fonts @import above, font families below)
-   - Change brand colors to match the business personality
-   - Flip surface colors for dark theme (swap light/dark values)
+   Patchwork Market — Design Tokens
+   Palette: warm cream base, forest green primary, amber accent
+   Mood: organic farmers market — food magazine × community marketplace
    ----------------------------------------------------------------------- */
 
 @theme {
-  /* Typography — replace with distinctive Google Fonts for the business */
-  --font-display: ui-sans-serif, system-ui, sans-serif;
-  --font-body: ui-sans-serif, system-ui, sans-serif;
+  /* Typography — Fraunces (editorial serif) + Nunito Sans (friendly body) */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Nunito Sans', ui-sans-serif, sans-serif;
 
-  /* Brand color scale — agent should customize per business */
-  --color-brand-50: oklch(0.97 0.01 250);
-  --color-brand-100: oklch(0.93 0.02 250);
-  --color-brand-200: oklch(0.87 0.04 250);
-  --color-brand-400: oklch(0.70 0.12 250);
-  --color-brand-500: oklch(0.60 0.16 250);
-  --color-brand-600: oklch(0.50 0.16 250);
+  /* Brand color scale — deep forest green */
+  --color-brand-50:  oklch(0.96 0.015 140);
+  --color-brand-100: oklch(0.91 0.03  140);
+  --color-brand-200: oklch(0.82 0.055 140);
+  --color-brand-400: oklch(0.54 0.095 140);
+  --color-brand-500: oklch(0.38 0.095 140);
+  --color-brand-600: oklch(0.30 0.085 140);
 
-  /* Surface colors — light theme defaults. Flip for dark theme:
-     surface-50 becomes near-black, surface-900 becomes near-white */
-  --color-surface-50: oklch(0.985 0.002 250);
-  --color-surface-100: oklch(0.96 0.004 250);
-  --color-surface-200: oklch(0.92 0.006 250);
-  --color-surface-800: oklch(0.30 0.015 250);
-  --color-surface-900: oklch(0.20 0.015 250);
-  --color-surface-950: oklch(0.14 0.012 250);
+  /* Amber accent scale */
+  --color-amber-50:  oklch(0.97 0.02  60);
+  --color-amber-100: oklch(0.93 0.045 58);
+  --color-amber-300: oklch(0.82 0.095 54);
+  --color-amber-400: oklch(0.72 0.115 52);
+  --color-amber-500: oklch(0.64 0.125 50);
+  --color-amber-600: oklch(0.54 0.115 48);
+
+  /* Surface colors — warm cream, never stark white */
+  --color-surface-50:  oklch(0.975 0.012 80);   /* warm cream #F7F3ED */
+  --color-surface-100: oklch(0.945 0.018 78);   /* parchment #EDE8DF */
+  --color-surface-200: oklch(0.90  0.02  76);   /* light tan */
+  --color-surface-300: oklch(0.82  0.022 74);
+  --color-surface-800: oklch(0.22  0.025 80);   /* dark earth */
+  --color-surface-900: oklch(0.15  0.02  82);   /* near black, warm tint */
+  --color-surface-950: oklch(0.10  0.015 82);
 }
 
-/* Page-load animations — CSS only, no JS required */
+/* ---- Base styles ---- */
+body {
+  background-color: oklch(0.975 0.012 80);
+  color: oklch(0.22 0.025 80);
+}
+
+/* Page-load animations */
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out both;
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
 }
 
-.animate-slide-up {
-  animation: slideUp 0.6s ease-out both;
+.animate-fade-in  { animation: fadeIn  0.7s ease-out both; }
+.animate-slide-up { animation: slideUp 0.7s ease-out both; }
+.animate-float    { animation: floatSlow 6s ease-in-out infinite; }
+
+.delay-100 { animation-delay: 0.10s; }
+.delay-200 { animation-delay: 0.20s; }
+.delay-300 { animation-delay: 0.30s; }
+.delay-400 { animation-delay: 0.40s; }
+.delay-500 { animation-delay: 0.50s; }
+
+/* ---- Noise grain overlay helper ---- */
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.028;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
 }
 
-/* Staggered animation delays for cascading reveals */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
+/* ---- Organic wave divider ---- */
+.wave-bottom {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
